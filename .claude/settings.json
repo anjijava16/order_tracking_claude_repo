@@ -1,0 +1,72 @@
+{
+  "permissions": {
+    "defaultMode": "default",
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "LS",
+      "Edit",
+      "Write(**)",
+      "Bash(pytest *)",
+      "Bash(ruff check *)",
+      "Bash(ruff format *)",
+      "Bash(mypy *)",
+      "Bash(alembic *)",
+      "Bash(uvicorn *)",
+      "Bash(celery *)",
+      "Bash(pip install *)",
+      "Bash(pip list *)",
+      "Bash(python -m *)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git checkout *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git tag *)",
+      "Bash(gh issue *)",
+      "Bash(gh pr *)",
+      "Bash(gh run *)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Write(.env)",
+      "Write(.env.*)",
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(git push --force *)",
+      "Bash(git reset --hard *)",
+      "Bash(pip publish *)",
+      "Bash(docker *)",
+      "Bash(curl *)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [{ "type": "command", "command": ".claude/hooks/SessionStart.sh" }]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [{ "type": "command", "command": ".claude/hooks/pre-commit.sh" }]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [{ "type": "command", "command": ".claude/hooks/PostToolUse.sh" }]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [{ "type": "command", "command": ".claude/hooks/PreCompact.sh" }]
+      }
+    ]
+  },
+  "model": "claude-sonnet-4-6",
+  "autoMemoryEnabled": true
+}

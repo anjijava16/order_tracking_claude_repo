@@ -1,0 +1,1 @@
+branch:{git_branch} | env:{APP_ENV} | db:{DB_STATUS} | workers:{CELERY_WORKERS} | order-tracking v1

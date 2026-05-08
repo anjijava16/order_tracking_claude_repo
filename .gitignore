@@ -1,0 +1,57 @@
+# ── Python ──────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+
+# ── Secrets & Environment ────────────────────────
+.env
+.env.*
+!.env.example
+*.local
+*.local.*
+CLAUDE.local.md
+.claude/settings.local.json
+.claude/.session-state.md
+
+# ── Testing & Coverage ───────────────────────────
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# ── Node / Frontend ──────────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/coverage/
+
+# ── IDE & OS ─────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Docker ───────────────────────────────────────
+*.log
+docker-compose.override.yml
+
+# ── Alembic ──────────────────────────────────────
+# (migration files are committed — do not ignore alembic/versions/)
+
+# ── Misc ─────────────────────────────────────────
+*.bak
+*.tmp
